@@ -1,0 +1,96 @@
+.chosen-container-single .chosen-single {
+    display: block;
+    width: 100%;
+    height: $input-height;
+    padding: $input-padding-y $input-padding-x;
+    font-size: $font-size-base;
+    line-height: $input-line-height;
+    color: $input-color;
+    background: none;
+    background-color: $input-bg;
+    background-clip: padding-box;
+    border: $input-border-width solid $input-border-color;
+    box-shadow: none;
+
+    // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+    @if $enable-rounded {
+      // Manually use the if/else instead of the mixin to account for iOS override
+      border-radius: $input-border-radius;
+    } @else {
+      // Otherwise undo the iOS default
+      border-radius: 0;
+    }
+
+    @include box-shadow($input-box-shadow);
+    @include transition($input-transition);
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single {
+    border-color: $input-border-color;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background: none;
+    background-color: $input-bg;
+    box-shadow: none;
+    @include box-shadow($input-box-shadow);
+}
+
+.chosen-container-single .chosen-single div b {
+    background-position: 3px 6px;
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single div b {
+    background-position: -18px 6px;
+}
+
+.chosen-container-active {
+    color: $input-focus-color;
+    background-color: $input-focus-bg;
+    border-color: $input-focus-border-color;
+    outline: 0;
+    // Avoid using mixin so we can pass custom focus shadow properly
+    @if $enable-shadows {
+      box-shadow: $input-box-shadow, $input-focus-box-shadow;
+    } @else {
+      box-shadow: $input-focus-box-shadow;
+    }
+
+    @if $enable-rounded {
+      // Manually use the if/else instead of the mixin to account for iOS override
+      border-radius: $input-border-radius;
+    } @else {
+      // Otherwise undo the iOS default
+      border-radius: 0;
+    }
+}
+
+.chosen-container .chosen-drop {
+    position: absolute;
+    top: 100%;
+    z-index: 1010;
+    width: 100%;
+    border: $input-border-width solid $input-border-color;
+    border-top: 0;
+    background: #fff;
+    box-shadow: none;
+    @include box-shadow($input-box-shadow);
+    clip: rect(0, 0, 0, 0);
+    -webkit-clip-path: inset(100% 100%);
+    clip-path: inset(100% 100%);
+}
+
+.chosen-container .chosen-results li.highlighted {
+    background: none;
+    background-color: $component-active-bg;
+}
+
+.chosen-container .chosen-results li {
+  display: none;
+  margin: 0;
+  padding: $input-padding-y $input-padding-x;
+  font-size: $font-size-base;
+  line-height: $input-line-height;
+  list-style: none;
+  word-wrap: break-word;
+  -webkit-touch-callout: none;
+}
