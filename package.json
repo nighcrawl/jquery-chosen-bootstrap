@@ -1,0 +1,28 @@
+{
+    "name": "jquery-chosen-bootstrap",
+    "version": "0.1.0",
+    "description": "Adds Bootstrap look on jQuery Chosen plugin",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nighcrawl/jquery-chosen-bootstrap.git"
+    },
+    "keywords": [
+        "jquery",
+        "chosen",
+        "bootstrap"
+    ],
+    "author": "Ange Chierchia",
+    "license": "Unlicense",
+    "bugs": {
+        "url": "https://github.com/nighcrawl/jquery-chosen-bootstrap/issues"
+    },
+    "homepage": "https://github.com/nighcrawl/jquery-chosen-bootstrap#readme",
+    "dependencies": {
+        "bootstrap": "^4.1.3",
+        "chosen-js": "^1.8.7"
+    }
+}
